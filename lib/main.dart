@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 import 'config/theme/app_theme.dart';
 import 'core/services/injector.dart';
 import 'utils/constants/app_strings.dart';
@@ -11,16 +10,7 @@ void main() async {
   // Initialize all dependencies
   await setupDependencies();
 
-  runApp(
-    MultiProvider(
-      providers: const [
-        // TODO: Add your providers here
-        // Example:
-        // ChangeNotifierProvider(create: (_) => HabitProvider()),
-      ],
-      child: const TickOffApp(),
-    ),
-  );
+  runApp(const TickOffApp());
 }
 
 class TickOffApp extends StatelessWidget {
