@@ -1,5 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../presentation/screens/about_screen.dart';
+import '../../presentation/screens/add_edit_habit_screen.dart';
+import '../../presentation/screens/analytics_screen.dart';
+import '../../presentation/screens/backup_screen.dart';
+import '../../presentation/screens/habit_detail_screen.dart';
+import '../../presentation/screens/habit_journal_screen.dart';
+import '../../presentation/screens/home_screen.dart';
+import '../../presentation/screens/journal_entry_screen.dart';
+import '../../presentation/screens/onboarding_screen.dart';
+import '../../presentation/screens/settings_screen.dart';
+import '../../presentation/screens/timeline_screen.dart';
+import '../../presentation/screens/splash_screen.dart';
 import '../../utils/enums/router_enums.dart';
 
 /// Global navigation key for contextless navigation
@@ -22,8 +34,7 @@ class AppRouting {
           path: RouterEnum.splash.path,
           name: RouteNames.splash,
           builder: (context, state) {
-            // TODO: Implement splash screen
-            return const Placeholder();
+            return const SplashScreen();
           },
         ),
 
@@ -32,8 +43,7 @@ class AppRouting {
           path: RouterEnum.onboarding.path,
           name: RouteNames.onboarding,
           builder: (context, state) {
-            // TODO: Implement onboarding screen
-            return const Placeholder();
+            return const OnboardingScreen();
           },
         ),
 
@@ -42,8 +52,7 @@ class AppRouting {
           path: RouterEnum.home.path,
           name: RouteNames.home,
           builder: (context, state) {
-            // TODO: Implement home screen
-            return const Placeholder();
+            return const HomeScreen();
           },
           routes: [
             // Add Habit
@@ -51,8 +60,7 @@ class AppRouting {
               path: RouterEnum.addHabit.path.replaceFirst('/', ''),
               name: RouteNames.addHabit,
               builder: (context, state) {
-                // TODO: Implement add habit screen
-                return const Placeholder();
+                return const AddEditHabitScreen();
               },
             ),
 
@@ -61,9 +69,8 @@ class AppRouting {
               path: RouterEnum.editHabit.path.replaceFirst('/', ''),
               name: RouteNames.editHabit,
               builder: (context, state) {
-                // final habitId = state.pathParameters['id'];
-                // TODO: Implement edit habit screen
-                return const Placeholder();
+                final habitId = state.pathParameters['id'];
+                return AddEditHabitScreen(habitId: habitId);
               },
             ),
 
@@ -72,9 +79,8 @@ class AppRouting {
               path: RouterEnum.habitDetail.path.replaceFirst('/', ''),
               name: RouteNames.habitDetail,
               builder: (context, state) {
-                // final habitId = state.pathParameters['id'];
-                // TODO: Implement habit detail screen
-                return const Placeholder();
+                final habitId = state.pathParameters['id']!;
+                return HabitDetailScreen(habitId: habitId);
               },
               routes: [
                 // Habit Journal
@@ -82,9 +88,8 @@ class AppRouting {
                   path: RouterEnum.habitJournal.path.replaceFirst('/', ''),
                   name: RouteNames.habitJournal,
                   builder: (context, state) {
-                    // final habitId = state.pathParameters['habitId'];
-                    // TODO: Implement habit journal screen
-                    return const Placeholder();
+                    final habitId = state.pathParameters['habitId']!;
+                    return HabitJournalScreen(habitId: habitId);
                   },
                 ),
               ],
@@ -95,9 +100,8 @@ class AppRouting {
               path: RouterEnum.journalEntry.path.replaceFirst('/', ''),
               name: RouteNames.journalEntry,
               builder: (context, state) {
-                // final habitId = state.pathParameters['habitId'];
-                // TODO: Implement journal entry screen
-                return const Placeholder();
+                final habitId = state.pathParameters['habitId']!;
+                return JournalEntryScreen(habitId: habitId);
               },
             ),
           ],
@@ -108,8 +112,7 @@ class AppRouting {
           path: RouterEnum.timeline.path,
           name: RouteNames.timeline,
           builder: (context, state) {
-            // TODO: Implement timeline screen
-            return const Placeholder();
+            return const TimelineScreen();
           },
         ),
 
@@ -118,8 +121,7 @@ class AppRouting {
           path: RouterEnum.analytics.path,
           name: RouteNames.analytics,
           builder: (context, state) {
-            // TODO: Implement analytics screen
-            return const Placeholder();
+            return const AnalyticsScreen();
           },
         ),
 
@@ -128,8 +130,7 @@ class AppRouting {
           path: RouterEnum.settings.path,
           name: RouteNames.settings,
           builder: (context, state) {
-            // TODO: Implement settings screen
-            return const Placeholder();
+            return const SettingsScreen();
           },
           routes: [
             // Backup
@@ -137,8 +138,7 @@ class AppRouting {
               path: RouterEnum.backup.path.replaceFirst('/', ''),
               name: RouteNames.backup,
               builder: (context, state) {
-                // TODO: Implement backup screen
-                return const Placeholder();
+                return const BackupScreen();
               },
             ),
 
@@ -147,8 +147,7 @@ class AppRouting {
               path: RouterEnum.about.path.replaceFirst('/', ''),
               name: RouteNames.about,
               builder: (context, state) {
-                // TODO: Implement about screen
-                return const Placeholder();
+                return const AboutScreen();
               },
             ),
           ],
